@@ -327,6 +327,7 @@ func (e *executor) post(action, body string) (resp *http.Response, err error) {
 	if err != nil {
 		return nil, err
 	}
+	request.Close = true
 	request.Header.Set("Content-Type", "application/json;charset=UTF-8")
 	request.Header.Set("XXL-JOB-ACCESS-TOKEN", e.opts.AccessToken)
 	client := http.Client{
